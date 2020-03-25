@@ -10,6 +10,7 @@
 <h3>Установите на телефон или планшет программу</h3>
 
 В GooglePlay - https://play.google.com/store/apps/details?id=cc.blynk&hl=ru
+
 В AppStore - https://apps.apple.com/ru/app/blynk-iot-for-arduino-esp32/id808760481
 
 ![Image alt](https://github.com/askkostya/RemoteSwitch/raw/master/docs/RemoteSwitchDoc1.png)
