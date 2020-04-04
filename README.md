@@ -20,4 +20,5 @@ https://docs.blynk.cc/#downloads-blynk-apps-for-ios-or-android
 
 <h3> Настройка интерфейса программы </h3>
 
+![Image alt](https://github.com/askkostya/RemoteSwitch/raw/master/docs/BlynkButton.png)
 
