@@ -20,5 +20,48 @@ https://docs.blynk.cc/#downloads-blynk-apps-for-ios-or-android
 
 <h3> Настройка интерфейса программы </h3>
 
-![Image alt](https://github.com/askkostya/RemoteSwitch/raw/master/docs/BlynkButton.jpg)
+<table style="height: 191px; width: 516px;">
+<tbody>
+<tr>
+<td style="width: 80px;" rowspan="7"><img src="https://github.com/askkostya/RemoteSwitch/raw/master/docs/BlynkButton.jpg" /></td>
+<td style="width: 80px; border-color: #36383c;">1</td>
+<td style="width: 207px; border-color: #36383c;">
+<p>Элемент - Gauge<br />Input-V4<br /><br /><br /></p>
+</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="border-color: #36383c;">2</td>
+<td style="border-color: #36383c;">Элемент Gauge<br />Input - V5<br />Refresh Rate - 30 sec</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="border-color: #36383c;">3</td>
+<td style="border-color: #36383c;">Элемент - Styled Button<br />Output - V1<br />Mode - Switch</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="border-color: #36383c;">4</td>
+<td style="border-color: #36383c;">Элемент - Styled Button<br />Output - V10<br />Mode - Switch</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="border-color: #36383c;">5</td>
+<td style="border-color: #36383c;">
+<p>Элемент - Styled Button<br />Output - V2<br />Mode - Switch</p>
+</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="border-color: #36383c;">6</td>
+<td style="border-color: #36383c;">Элемент - Styled Button<br />Output - V0<br />Mode - Switch</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="border-color: #36383c;">7</td>
+<td style="border-color: #36383c;">Элемент - Segment Switch<br />Output - V3<br />1 - Нагрев<br />2 - Вентилятор&nbsp;</td>
+<td style="width: 32px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
 
