@@ -14,3 +14,10 @@
 В AppStore - https://apps.apple.com/ru/app/blynk-iot-for-arduino-esp32/id808760481
 
 ![Image alt](https://github.com/askkostya/RemoteSwitch/raw/master/docs/RemoteSwitchDoc1.png)
+
+Подробнее про установку приложения на телефон или планшет можно посмотреть тут
+https://docs.blynk.cc/#downloads-blynk-apps-for-ios-or-android
+
+Настройка интерфейса программы
+
+
