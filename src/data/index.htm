@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройка Remote Switch</title>
+<style>
+body{
+  background: #4E535B;
+  font-family:'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+}
+h2{
+  text-align: center;
+  color: #F1F2F4;
+  text-shadow: 0 1px 0 #000;
+}
+a{
+  text-decoration: none; color: #EC5C93; 
+}
+
+.saveparam{
+  background: #F1F2F4;
+  border-bottom: 2px solid #C5C5C8;
+  border-radius: 5px;
+  text-align: center;
+  color: #36383C;
+  text-shadow: 0 1px 0 #FFF;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 15px 40px 20px 40px;
+  box-shadow: 0 0 3px #000;
+}
+
+h1{
+  font-size: 1.2em;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+p{
+  font-family:'Open Sans', Arial, sans-serif;
+  font-weight: 300;
+  color: #7B808A;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.input{
+  text-align: right;
+  background: #E5E7E9;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 0 3px #65686E;
+  border-bottom: 1px solid #FFF;
+}
+input{
+  width: 260px;
+  background: transparent;
+  border: 0;
+  line-height: 3.6em;
+  box-sizing: border-box;
+  color: #71747A;
+  font-family:'Open Sans', Arial, sans-serif;
+  text-shadow: 0 1px 0 #FFF;
+}
+input:focus{
+  outline: none;
+}
+.blockinput{
+  border-bottom: 1px solid #BDBFC2;
+  border-top: 1px solid #FFFFFF;
+}
+.blockinput:first-child{
+  border-top: 0;
+}
+.blockinput:last-child{
+  border-bottom: 0;
+}
+.blockinput i{
+  padding-right: 10px;
+  color: #B1B3B7;
+  text-shadow: 0 1px 0 #FFF;
+}
+::-webkit-input-placeholder {
+  color: #71747A;
+  font-family:'Open Sans', Arial, sans-serif;
+  text-shadow: 0 1px 0 #FFF;
+}
+button{
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  line-height: 2em;
+  background: rgba(114,212,202,1);
+  border-radius: 5px;
+  border:0;
+  cursor: pointer;
+  border-top: 1px solid #B2ECE6;
+  box-shadow: 0 0 0 1px #46A294, 0 2px 2px #808389;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  text-shadow: 0 1px 2px #21756A;
+}
+button:hover{
+ background: linear-gradient(to bottom, rgba(107,198,186,1) 0%,rgba(57,175,154,1) 100%);  
+}
+button:active{
+  box-shadow: inset 0 0 5px #000;
+  background: linear-gradient(to bottom, rgba(57,175,154,1) 0%,rgba(107,198,186,1) 100%); 
+}
+</style>
+
+<script type="text/javascript">
+  
+function val(id){
+ var v = document.getElementById(id).value;
+ return v;
+}
+function send_request(submit,server){
+ request = new XMLHttpRequest();
+ request.open("GET", server, true);
+ request.send();
+ save_status(submit,request);
+}
+
+function submitParameters(submit)
+  {
+   server = "/param?ssidAP="+val('ssidap')+"&passwordAP="+val('passwordAp')+"&BlynkAuthToken="+val('blynkToken')+"&tempCorrection="+val('tempCorrection')+"&tempStarted="+val('tempStarted')+"&tempMaximum="+val('tempMaximum');
+     send_request(submit,server);
+    alert("Настройки сохранены. Переместите выключатель в положение OFF и затем выключите устройство.");
+}
+ 
+function save_status(submit,request){
+ old_submit = submit.value;
+ request.onreadystatechange = function() {
+  if (request.readyState != 4) return;
+  submit.value = request.responseText;
+  setTimeout(function(){
+   submit.value=old_submit;
+   submit_disabled(false);
+  }, 1000);
+ }
+ submit.value = 'Подождите...';
+ submit_disabled(true);
+}
+
+function submit_disabled(request){
+ var inputs = document.getElementsByTagName("input");
+ for (var i = 0; i < inputs.length; i++) {
+  if (inputs[i].type === 'submit') {inputs[i].disabled = request;}
+ }
+}
+
+</script>
+</head>
+<body>
+  <body>
+  <div class="saveparam">
+  <h1>Настройки WIFI</h1>
+     <div class="input">
+      <div class="blockinput">
+        <i class="icon-envelope-alt"></i> <input id="ssidap" required  pattern="[0-9a-zA-Z.]{1,15}" placeholder="SSID">
+      </div>
+      
+	  <div class="blockinput">
+        <i class="icon-unlock"></i><input id="passwordAp" required  placeholder="SSID Password">
+      </div>
+    
+	<div class="blockinput">
+        <i class="icon-unlock"></i><input id="blynkToken" required  placeholder="Blynk Auth Token">
+      </div>
+	</div>
+    
+	<h1>Настройки температуры</h1>
+	<div class="blockinput">
+        <i class="icon-envelope-alt"></i><input id="tempCorrection"  title="Для отрицательного значения поставьте минус перед числом" placeholder="Коррекция температуры">
+      </div>
+	<div class="blockinput">
+        <i class="icon-unlock"></i><input id="tempStarted" title="Установленная температура при включении" required  placeholder="Температура при включении">
+      </div>
+	<div class="blockinput">
+        <i class="icon-unlock"></i><input id="tempMaximum" title="Максимально возможная температура" required  placeholder="Максимальная температура">
+      </div>
+	
+	
+	<div>
+	
+	<h1>Настройки MQQT</h1> 
+	<div class="blockinput">
+        <i class="icon-envelope-alt"></i><input id="MQQTServer" type="MQQT Server" placeholder="MQQT Server">
+      </div>
+	<div class="blockinput">
+        <i class="icon-unlock"></i><input id="MQQTUser" type="MQQT User" placeholder="MQQT User">
+      </div>
+	<div>
+	<button onclick="submitParameters(this);" type="submit" >Сохранить</button>
+	</div>
+  </div>
+</body>
+</body>
+</html>
