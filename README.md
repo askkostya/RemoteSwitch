@@ -95,3 +95,4 @@ https://docs.blynk.cc/#downloads-blynk-apps-for-ios-or-android
 ESP32 DevKit 1 (30 ног)
 Микросхема MC14490FL
 DHT22 – модуль температуры и влажности
+ 
