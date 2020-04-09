@@ -9,8 +9,8 @@
 hw_timer_t * timerA = NULL;
 volatile bool dcA = true;
 
-int durationON = 800000;
-int durationOFF = 120000;
+int durationON = 700000; 
+int durationOFF = 100000;
 
 //Переменные для WIFI подключения
 String ssidAP;
