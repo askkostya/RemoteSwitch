@@ -1,10 +1,10 @@
 //Запускается приложение на телефоне
 BLYNK_APP_CONNECTED() {
-  Blynk.virtualWrite(V10, globalPower); //Состояние (включен/выключен
-  Blynk.virtualWrite(V3, globalChangeMode); //Состояние (нагрев / вентилятор)
-  Blynk.virtualWrite(V4, numTempStarted); //Включен нагрев до (температура)
-  Blynk.virtualWrite(V5, getTempFromDHT()); //Текущее значение с учетом корретировки (температура)
-  Blynk.virtualWrite(V0, globalBlocked); //Текущее значение блокировки кнопок
+  Blynk.virtualWrite(V10, globalPower);     //Состояние (включен/выключен)
+  Blynk.virtualWrite(V3, globalChangeMode); //Режим работы (нагрев/вентилятор)
+  Blynk.virtualWrite(V4, numTempStarted);   //Включен нагрев до (температура)
+  Blynk.virtualWrite(V5, tempNow); //Температура с учетом корректировки (температура)
+  Blynk.virtualWrite(V0, globalBlocked);    //Статус блокировки клавиатуры
 }
 
 //Устройство присоединяется к серверу Blynk
@@ -12,11 +12,11 @@ BLYNK_CONNECTED()
 {
   if (isFirstBlynkConnect == true)
   {
-    Blynk.virtualWrite(V10, globalPower); //Состояние (включен/выключен
-    Blynk.virtualWrite(V3, globalChangeMode); //Состояние (нагрев / вентилятор)
-    Blynk.virtualWrite(V4, numTempStarted); //Включен нагрев до (температура)
-    Blynk.virtualWrite(V5, getTempFromDHT()); //Текущее значение с учетом корретировки (температура)
-    Blynk.virtualWrite(V0, globalBlocked); //Текущее значение блокировки кнопок
+    Blynk.virtualWrite(V10, globalPower);     //Состояние (включен/выключен)
+    Blynk.virtualWrite(V3, globalChangeMode); //Режим работы (нагрев/вентилятор)
+    Blynk.virtualWrite(V4, numTempStarted);   //Включен нагрев до (температура)
+    Blynk.virtualWrite(V5, tempNow);          //Температура с градусника с учетом корректировки
+    Blynk.virtualWrite(V0, globalBlocked);    //Статус блокировки кнопок
     isFirstBlynkConnect = false;
   }
 }
@@ -28,9 +28,12 @@ BLYNK_WRITE(V0) {
 
 //Нажатие кнопки POWER в приложении
 BLYNK_WRITE(V10) {
-  digitalWrite(POWER_OPT, true);  // включить POWER
-  timerAlarmEnable(timerA);
-  globalPower = ! globalPower;  //Инверсия значения globalPower
+digitalWrite(POWER_OPT, true);  //включить POWER
+timerAlarmEnable(timerA);
+//globalPower=!digitalRead(POWERLAMP);
+globalPower=!globalPower;
+Blynk.virtualWrite(V10, globalPower);
+setTempStarted();
 }
 
 //Нажатие кнопки (+) в приложении
@@ -74,5 +77,5 @@ BLYNK_WRITE(V3) {
 //Чтение температуры с градусника
 BLYNK_READ(V5)
 {
-  Blynk.virtualWrite(V5, getTempFromDHT());
+  Blynk.virtualWrite(V5, tempNow);
 }

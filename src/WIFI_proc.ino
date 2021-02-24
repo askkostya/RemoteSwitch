@@ -35,12 +35,13 @@ void WifiConnectionInit() {
 bool startWifi_SoftAP()
 {
   WiFi.softAP(SoftAPName.c_str(), "12345678");
+ //Serial.println("Portal started...");
 }
 
 bool startWifi_Client()
 {
-  loadConfiguration(filename, config);
-  WiFi.begin(ssidAP.c_str(), passwordAP.c_str());
+WiFi.begin(ssidAP.c_str(), passwordAP.c_str());
+//Serial.println("Client started...");
 }
 
 //Таймер для реконнекта к WIFI и Blynk в случае потери связи
@@ -50,11 +51,10 @@ static void WifiTimerReconnect(void)
   {
     if (WiFi.status() != WL_CONNECTED)
     {
-      Serial.println("Reconnect to WiFi Started...");
+ //     Serial.println("Reconnect to WiFi Started...");
       WiFi.begin(ssidAP.c_str(), passwordAP.c_str());
     }
     if (!Blynk.connected() && WiFi.status() == WL_CONNECTED)
-
     {
       Blynk.connect();
     }
