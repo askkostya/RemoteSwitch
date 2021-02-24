@@ -97,4 +97,7 @@ https://docs.blynk.cc/#downloads-blynk-apps-for-ios-or-android
 ESP32 DevKit 1 (30 ног)
 Микросхема MC14490FL
 DHT22 – модуль температуры и влажности
+
+<h2>5. Монтажная плата</h2>
+Для печати шаблона для изготовления печатной платы доступна бесплатная версия ПО Sprint-Layout http://www.abacom-online.de/updates/Sprint-Layout60_Viewer.exe
  
