@@ -42,7 +42,9 @@ https://docs.blynk.cc/#downloads-blynk-apps-for-ios-or-android
 </tr>
 <tr>
 <td style="border-color: #36383c;">4</td>
-<td style="border-color: #36383c;">Элемент - Styled Button<br />Output - V10<br />Mode - Switch</td>
+<td style="border-color: #36383c;">
+<p>Элемент - Styled Button<br />Output - V10<br />Mode - Switch<br />OFF LABEL ВЫКЛ<br />ON LABEL ВКЛ</p>
+  </td>
 <td style="width: 32px;">&nbsp;</td>
 </tr>
 <tr>
